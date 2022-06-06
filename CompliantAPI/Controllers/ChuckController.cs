@@ -5,7 +5,7 @@ namespace CompliantAPI.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class ChuckController : ControllerBase
+    public class ChuckController : ApiControllerBase
     {
 
         [HttpGet("categories")]

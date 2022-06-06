@@ -5,7 +5,7 @@ namespace CompliantAPI.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class SwapiController : ControllerBase
+    public class SwapiController : ApiControllerBase
     {
         [HttpGet("people")]
         public IActionResult People()
