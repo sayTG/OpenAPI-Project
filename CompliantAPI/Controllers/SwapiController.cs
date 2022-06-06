@@ -7,5 +7,10 @@ namespace CompliantAPI.Controllers
     [ApiController]
     public class SwapiController : ControllerBase
     {
+        [HttpGet("people")]
+        public IActionResult People()
+        {
+            return Ok(string.Empty);
+        }
     }
 }

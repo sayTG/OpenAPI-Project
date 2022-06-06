@@ -7,5 +7,11 @@ namespace CompliantAPI.Controllers
     [ApiController]
     public class ChuckController : ControllerBase
     {
+
+        [HttpGet("categories")]
+        public IActionResult Categories()
+        {
+            return Ok(string.Empty);
+        }
     }
 }

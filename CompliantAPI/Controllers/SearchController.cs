@@ -3,9 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CompliantAPI.Controllers
 {
-    [Route("[controller]")]
     [ApiController]
     public class SearchController : ControllerBase
     {
+        [HttpGet("search")]
+        public IActionResult Search()
+        {
+            return Ok(string.Empty);
+        }
     }
 }
