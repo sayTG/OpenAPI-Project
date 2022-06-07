@@ -7,7 +7,8 @@ namespace CompliantAPI.Controllers
 {
     public class ApiControllerBase : ControllerBase
     {
-        internal IActionResult ProcessError(ApiBaseResponse baseResponse)
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public IActionResult ProcessError(ApiBaseResponse baseResponse)
         {
             return baseResponse switch
             {
