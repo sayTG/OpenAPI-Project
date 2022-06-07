@@ -20,6 +20,8 @@ namespace CompliantAPI.Controllers
         public async Task<IActionResult> People(int pages = 1)
         {
             ApiBaseResponse result = await _dataService.AllStarWarsPeople(pages);
+            if (!result.Success)
+                return ProcessError(result);
             return Ok(result.GetResult<SwapiDTO>());
         }
     }

@@ -1,4 +1,5 @@
 ﻿using CompliantAPI.DTOs;
+using CompliantAPI.Utilities.Reponses;
 
 namespace CompliantAPI.Utilities.Clients
 {
@@ -8,6 +9,15 @@ namespace CompliantAPI.Utilities.Clients
 
         public ChuckNorris(HttpClient httpClient) => _httpClient = httpClient;
 
-        public async Task<List<string>> GetAllJokeCategories() => await _httpClient.GetFromJsonAsync<List<string>>("jokes/categories") ?? throw new Exception("Failed to get response");
+        public async Task<ApiBaseResponse> GetAllJokeCategories()
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync("jokes/categories");
+            if (response.IsSuccessStatusCode)
+            {
+                List<string>? result = await response.Content.ReadFromJsonAsync<List<string>>();
+                return new ApiOkResponse<List<string>?>(result);
+            }
+            else return new ApiNoContentResponse("No data");
+        }
     }
 }

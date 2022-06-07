@@ -21,6 +21,8 @@ namespace CompliantAPI.Controllers
         public async Task<IActionResult> Categories()
         {
             ApiBaseResponse result = await _dataService.AllJokeCategories(); 
+            if(!result.Success)
+                return ProcessError(result);
             return Ok(result.GetResult< List<string>>());
         }
     }

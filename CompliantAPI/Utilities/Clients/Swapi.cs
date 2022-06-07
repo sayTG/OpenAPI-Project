@@ -1,4 +1,5 @@
 ﻿using CompliantAPI.DTOs;
+using CompliantAPI.Utilities.Reponses;
 
 namespace CompliantAPI.Utilities.Clients
 {
@@ -8,6 +9,15 @@ namespace CompliantAPI.Utilities.Clients
 
         public Swapi(HttpClient httpClient) => _httpClient = httpClient;
 
-        public async Task<SwapiDTO> AllStarWarsPeople(int page) => await _httpClient.GetFromJsonAsync<SwapiDTO>($"people/?page={page}") ?? throw new Exception("Failed to get response");
+        public async Task<ApiBaseResponse> AllStarWarsPeople(int page)
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync($"people/?page={page}");
+            if (response.IsSuccessStatusCode)
+            {
+                SwapiDTO? result = await response.Content.ReadFromJsonAsync<SwapiDTO>();
+                return new ApiOkResponse<SwapiDTO?>(result);
+            }
+            else return new ApiNoContentResponse("No data");
+        }
     }
 }

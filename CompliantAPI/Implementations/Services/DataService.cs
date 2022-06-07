@@ -16,13 +16,11 @@ namespace CompliantAPI.Implementations.Services
         }
         public async Task<ApiBaseResponse> AllJokeCategories()
         {
-            List<string> clientResponse = await _chuckNorris.GetAllJokeCategories();
-            return new ApiOkResponse<List<string>>(clientResponse);
+            return await _chuckNorris.GetAllJokeCategories();
         }
         public async Task<ApiBaseResponse> AllStarWarsPeople(int pages)
         {
-            SwapiDTO clientResponse = await _swapi.AllStarWarsPeople(pages == 0 ? 1 : pages);
-            return new ApiOkResponse<SwapiDTO>(clientResponse);
+            return await _swapi.AllStarWarsPeople(pages == 0 ? 1 : pages);
         }
     }
 }
