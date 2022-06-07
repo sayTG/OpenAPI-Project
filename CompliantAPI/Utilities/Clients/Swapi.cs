@@ -19,5 +19,15 @@ namespace CompliantAPI.Utilities.Clients
             }
             else return new ApiNoContentResponse("No data");
         }
+        public async Task<ApiBaseResponse> SearchStarWarsPeople(string query)
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync($"people/?search={query}");
+            if (response.IsSuccessStatusCode)
+            {
+                SwapiDTO? result = await response.Content.ReadFromJsonAsync<SwapiDTO>();
+                return new ApiOkResponse<SwapiDTO?>(result);
+            }
+            else return new ApiNoContentResponse("No data");
+        }
     }
 }

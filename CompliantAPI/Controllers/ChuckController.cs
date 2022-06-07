@@ -1,8 +1,6 @@
 ﻿using CompliantAPI.Abstractions.IServices;
-using CompliantAPI.DTOs;
 using CompliantAPI.Utilities.Extensions;
 using CompliantAPI.Utilities.Reponses;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompliantAPI.Controllers
@@ -20,10 +18,10 @@ namespace CompliantAPI.Controllers
         [HttpGet("Categories")]
         public async Task<IActionResult> Categories()
         {
-            ApiBaseResponse result = await _dataService.AllJokeCategories(); 
-            if(!result.Success)
+            ApiBaseResponse result = await _dataService.AllJokeCategories();
+            if (!result.Success)
                 return ProcessError(result);
-            return Ok(result.GetResult< List<string>>());
+            return Ok(result.GetResult<List<string>>());
         }
     }
 }

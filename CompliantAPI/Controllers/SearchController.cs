@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CompliantAPI.Abstractions.IServices;
+using CompliantAPI.DTOs;
+using CompliantAPI.Utilities.Extensions;
+using CompliantAPI.Utilities.Reponses;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompliantAPI.Controllers
@@ -7,10 +11,18 @@ namespace CompliantAPI.Controllers
     [ApiController]
     public class SearchController : ApiControllerBase
     {
-        [HttpGet]
-        public IActionResult Search()
+        private readonly IDataService _dataService;
+        public SearchController(IDataService dataService)
         {
-            return Ok(string.Empty);
+            _dataService = dataService;
+        }
+        [HttpGet]
+        public async Task<IActionResult> Search(string query)
+        {
+            ApiBaseResponse response = await _dataService.SearchChuckNorris_Swapi(query);
+            if (!response.Success)
+                return ProcessError(response);
+            return Ok(response.GetResult<ChuckNorris_SwapDTO>());
         }
     }
 }

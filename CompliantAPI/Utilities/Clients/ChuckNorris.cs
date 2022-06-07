@@ -1,5 +1,4 @@
-﻿using CompliantAPI.DTOs;
-using CompliantAPI.Utilities.Reponses;
+﻿using CompliantAPI.Utilities.Reponses;
 
 namespace CompliantAPI.Utilities.Clients
 {
@@ -16,6 +15,16 @@ namespace CompliantAPI.Utilities.Clients
             {
                 List<string>? result = await response.Content.ReadFromJsonAsync<List<string>>();
                 return new ApiOkResponse<List<string>?>(result);
+            }
+            else return new ApiNoContentResponse("No data");
+        }
+        public async Task<ApiBaseResponse> SearchChuckNorrisJokes(string query)
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync($"jokes/search?query={query}");
+            if (response.IsSuccessStatusCode)
+            {
+                dynamic? result = await response.Content.ReadFromJsonAsync<dynamic>();
+                return new ApiOkResponse<dynamic>(result);
             }
             else return new ApiNoContentResponse("No data");
         }
