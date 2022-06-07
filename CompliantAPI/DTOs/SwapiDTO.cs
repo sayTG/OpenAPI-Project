@@ -8,8 +8,8 @@
     public class ResultDTO
     {
         public string? Name { get; set; } 
-        public int Height { get; set; } 
-        public int Mass { get; set; } 
+        public string? Height { get; set; } 
+        public string? Mass { get; set; } 
         public string? Hair_Color { get; set; } 
         public string? Skin_Color { get; set; } 
         public string? Eye_Color { get; set; } 

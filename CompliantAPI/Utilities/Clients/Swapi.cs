@@ -8,6 +8,6 @@ namespace CompliantAPI.Utilities.Clients
 
         public Swapi(HttpClient httpClient) => _httpClient = httpClient;
 
-        public async Task<SwapiDTO> AllStarWarsPeople(int page) => await _httpClient.GetFromJsonAsync<SwapiDTO>($"people/?page = {page}") ?? throw new Exception("Failed to get response");
+        public async Task<SwapiDTO> AllStarWarsPeople(int page) => await _httpClient.GetFromJsonAsync<SwapiDTO>($"people/?page={page}") ?? throw new Exception("Failed to get response");
     }
 }
