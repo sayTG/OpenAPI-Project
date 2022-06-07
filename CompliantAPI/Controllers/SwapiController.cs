@@ -16,7 +16,7 @@ namespace CompliantAPI.Controllers
         {
             _dataService = dataService;
         }
-        [HttpGet("people")]
+        [HttpGet("People")]
         public async Task<IActionResult> People(int pages = 1)
         {
             ApiBaseResponse result = await _dataService.AllStarWarsPeople(pages);

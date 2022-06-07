@@ -7,6 +7,7 @@ namespace CompliantAPI.Controllers
     [ApiController]
     public class SearchController : ApiControllerBase
     {
+        [HttpGet]
         public IActionResult Search()
         {
             return Ok(string.Empty);

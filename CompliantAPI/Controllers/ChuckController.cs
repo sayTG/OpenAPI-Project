@@ -17,11 +17,11 @@ namespace CompliantAPI.Controllers
             _dataService = dataService;
         }
 
-        [HttpGet("categories")]
+        [HttpGet("Categories")]
         public async Task<IActionResult> Categories()
         {
             ApiBaseResponse result = await _dataService.AllJokeCategories(); 
-            return Ok(result.GetResult< List<ChuckNorrisDTO>>());
+            return Ok(result.GetResult< List<string>>());
         }
     }
 }

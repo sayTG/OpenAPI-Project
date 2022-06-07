@@ -10,10 +10,10 @@
         public string? Name { get; set; } 
         public int Height { get; set; } 
         public int Mass { get; set; } 
-        public string? HairColor { get; set; } 
-        public string? SkinColor { get; set; } 
-        public string? EyeColor { get; set; } 
-        public string? BirthYear { get; set; } 
+        public string? Hair_Color { get; set; } 
+        public string? Skin_Color { get; set; } 
+        public string? Eye_Color { get; set; } 
+        public string? Birth_Year { get; set; } 
         public string? Gender { get; set; } 
         public string? HomeWorld { get; set; } 
     }

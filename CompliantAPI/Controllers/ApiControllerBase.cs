@@ -7,7 +7,7 @@ namespace CompliantAPI.Controllers
 {
     public class ApiControllerBase : ControllerBase
     {
-        public IActionResult ProcessError(ApiBaseResponse baseResponse)
+        internal IActionResult ProcessError(ApiBaseResponse baseResponse)
         {
             return baseResponse switch
             {
