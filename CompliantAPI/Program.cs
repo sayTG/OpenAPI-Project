@@ -2,6 +2,7 @@ using CompliantAPI.Abstractions.IClients;
 using CompliantAPI.Abstractions.ILogger;
 using CompliantAPI.Abstractions.IServices;
 using CompliantAPI.Implementations.Clients;
+using CompliantAPI.Implementations.Logger;
 using CompliantAPI.Implementations.Services;
 using CompliantAPI.Utilities.Extensions;
 using NLog;
@@ -20,6 +21,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IDataService, DataService>();
 builder.Services.AddScoped<ISwapi, Swapi>();
 builder.Services.AddScoped<IChuckNorris, ChuckNorris>();
+builder.Services.AddSingleton<ILoggerManager, LoggerManager>();
 
 builder.Services.AddHttpClient<ChuckNorris>(c => c.BaseAddress = new Uri("https://api.chucknorris.io/"));
 builder.Services.AddHttpClient<Swapi>(c => c.BaseAddress = new Uri("https://swapi.dev/api/"));
