@@ -1,5 +1,6 @@
 ﻿using CompliantAPI.Abstractions.IServices;
 using CompliantAPI.Controllers;
+using CompliantAPI.DTOs;
 using CompliantAPI.Utilities.Reponses;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
@@ -73,8 +74,8 @@ namespace CompliantAPI.Tests.ControllersTests
         {
             // Arrange
             string query = "";
-            List<string> value = new() { "car", "vehicle" };
-            _dataServiceMock.Setup(d => d.SearchChuckNorris_Swapi(query)).ReturnsAsync(new ApiOkResponse<List<string>>(value));
+            ChuckNorris_SwapDTO value = new();
+            _dataServiceMock.Setup(d => d.SearchChuckNorris_Swapi(query)).ReturnsAsync(new ApiOkResponse<ChuckNorris_SwapDTO>(value));
             SearchController _controller = new(_dataServiceMock.Object);
 
             // Act
@@ -84,6 +85,7 @@ namespace CompliantAPI.Tests.ControllersTests
             // Assert
             Assert.NotNull(actual);
             Assert.IsType<OkObjectResult>(actual);
+            Assert.IsType<ChuckNorris_SwapDTO>(actualStatusCode.Value);
             Assert.Equal(200, actualStatusCode.StatusCode);
         }
     }

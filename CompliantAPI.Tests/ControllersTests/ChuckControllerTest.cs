@@ -80,6 +80,7 @@ namespace CompliantAPI.Tests.ControllersTests
             // Assert
             Assert.NotNull(actual);
             Assert.IsType<OkObjectResult>(actual);
+            Assert.IsType<List<string>>(actualStatusCode.Value);
             Assert.Equal(200, actualStatusCode.StatusCode);
         }
     }
