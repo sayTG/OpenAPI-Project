@@ -20,7 +20,7 @@ namespace CompliantAPI.Tests.ControllersTests
             _dataServiceMock = new Mock<IDataService>(MockBehavior.Default);
         }
         [Fact]
-        public async void People_ApiNoContentResponse_ReturnsNoContent()
+        public async void People_NoContentResponse_ReturnsNoContent()
         {
             // Arrange
             int pages = 1;
@@ -37,7 +37,7 @@ namespace CompliantAPI.Tests.ControllersTests
             Assert.Equal(204, actualStatusCode.StatusCode);
         }
         [Fact]
-        public async void People_ApiBadRequestResponse_ReturnsBadRequest()
+        public async void People_BadRequestResponse_ReturnsBadRequest()
         {
             // Arrange
             int pages = 1;
@@ -54,7 +54,7 @@ namespace CompliantAPI.Tests.ControllersTests
             Assert.Equal(400, actualStatusCode.StatusCode);
         }
         [Fact]
-        public async void People_ApiOkResponseAndInValidReturnType_ReturnsOk()
+        public async void People_OkResponseAndInValidReturnType_ReturnsOk()
         {
             // Arrange
             int pages = 1;
@@ -70,7 +70,7 @@ namespace CompliantAPI.Tests.ControllersTests
         }
 
         [Fact]
-        public async void People_ApiOkResponseAndValidReturnType_ReturnsOk()
+        public async void People_OkResponseAndValidReturnType_ReturnsOk()
         {
             // Arrange
             int pages = 1;

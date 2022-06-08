@@ -19,7 +19,7 @@ namespace CompliantAPI.Tests.ControllersTests
             _dataServiceMock = new Mock<IDataService>(MockBehavior.Default);
         }
         [Fact]
-        public async void Categories_ApiNoContentResponse_ReturnsNoContent()
+        public async void Categories_NoContentResponse_ReturnsNoContent()
         {
             // Arrange
             _dataServiceMock.Setup(d => d.AllJokeCategories()).ReturnsAsync(new ApiNoContentResponse(""));
@@ -35,7 +35,7 @@ namespace CompliantAPI.Tests.ControllersTests
             Assert.Equal(204, actualStatusCode.StatusCode);
         }
         [Fact]
-        public async void Categories_ApiBadRequestResponse_ReturnsBadRequest()
+        public async void Categories_BadRequestResponse_ReturnsBadRequest()
         {
             // Arrange
             _dataServiceMock.Setup(d => d.AllJokeCategories()).ReturnsAsync(new ApiBadRequestResponse(""));
@@ -51,7 +51,7 @@ namespace CompliantAPI.Tests.ControllersTests
             Assert.Equal(400, actualStatusCode.StatusCode);
         }
         [Fact]
-        public async void Categories_ApiOkResponseAndInValidReturnType_ReturnsOk()
+        public async void Categories_OkResponseAndInValidReturnType_ReturnsOk()
         {
             // Arrange
             string value = "car";
@@ -66,7 +66,7 @@ namespace CompliantAPI.Tests.ControllersTests
         }
 
         [Fact]
-        public async void Categories_ApiOkResponseAndValidReturnType_ReturnsOk()
+        public async void Categories_OkResponseAndValidReturnType_ReturnsOk()
         {
             // Arrange
             List<string> value = new() { "car", "vehicle" };

@@ -20,7 +20,7 @@ namespace CompliantAPI.Tests.ControllersTests
             _dataServiceMock = new Mock<IDataService>(MockBehavior.Default);
         }
         [Fact]
-        public async void Search_ApiNoContentResponse_ReturnsNoContent()
+        public async void Search_NoContentResponse_ReturnsNoContent()
         {
             // Arrange
             string query = "";
@@ -37,7 +37,7 @@ namespace CompliantAPI.Tests.ControllersTests
             Assert.Equal(204, actualStatusCode.StatusCode);
         }
         [Fact]
-        public async void Search_ApiBadRequestResponse_ReturnsBadRequest()
+        public async void Search_BadRequestResponse_ReturnsBadRequest()
         {
             // Arrange
             string query = "";
@@ -54,7 +54,7 @@ namespace CompliantAPI.Tests.ControllersTests
             Assert.Equal(400, actualStatusCode.StatusCode);
         }
         [Fact]
-        public async void Search_ApiOkResponseAndInValidReturnType_ReturnsOk()
+        public async void Search_OkResponseAndInValidReturnType_ReturnsOk()
         {
             // Arrange
             string query = "";
@@ -70,7 +70,7 @@ namespace CompliantAPI.Tests.ControllersTests
         }
 
         [Fact]
-        public async void Search_ApiOkResponseAndValidReturnType_ReturnsOk()
+        public async void Search_OkResponseAndValidReturnType_ReturnsOk()
         {
             // Arrange
             string query = "";

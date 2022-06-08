@@ -12,7 +12,7 @@ namespace CompliantAPI.Tests.ControllersTests
     public class ApiControllerBaseTest
     {
         [Fact]
-        public void ProcessError_ApiNoContentResponse_ReturnsNoContent()
+        public void ProcessError_NoContentResponse_ReturnsNoContent()
         {
             // Arrange
             ApiBaseResponse baseResponse = new ApiNoContentResponse("");
@@ -26,7 +26,7 @@ namespace CompliantAPI.Tests.ControllersTests
             Assert.IsType<NoContentResult>(actual);
         }
         [Fact]
-        public void ProcessError_ApiBadRequestResponse_ReturnsNoContent()
+        public void ProcessError_BadRequestResponse_ReturnsNoContent()
         {
             // Arrange
             ApiBaseResponse baseResponse = new ApiBadRequestResponse("");
