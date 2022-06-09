@@ -1,0 +1,30 @@
+<div
+  class="bg-white border- rounded h-full border-2 group-focus:border-gray-600"
+>
+  <div class="border-b flex text-sm p-4 gap-4 items-center">
+    <div class="flex-grow flex gap-4 items-center">
+      <button
+        (click)="fetchRequest()"
+        class="rounded font-medium bg-gray-300 py-2 px-4 text-gray-600 uppercase hover:bg-gray-200"
+      >
+        {{ req.verb }}
+      </button>
+      <div class="font-mono">{{ req.title }}</div>
+    </div>
+
+    <button
+      (click)="reset()"
+      class="rounded font-medium text-xs py-2 px-4 text-red-600 hover:bg-red-200"
+    >
+      RESET
+    </button>
+  </div>
+
+  <textarea
+    readonly
+    *ngIf="response"
+    [value]="response"
+    class="font-mono h-48 text-xs w-full p-4 focus:outline-0"
+  >
+  </textarea>
+</div>
