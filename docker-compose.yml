@@ -6,3 +6,5 @@ services:
     build:
       context: .
       dockerfile: CompliantAPI/Dockerfile
+    ports:
+    - "7015:443"
