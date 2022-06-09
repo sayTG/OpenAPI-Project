@@ -1,28 +1,38 @@
 <div class="bg-white rounded h-full border-2 group-focus:border-gray-600">
-  <div class="border-b flex text-sm p-4 gap-4 items-center">
-    <div class="flex-grow flex gap-4 items-center">
+  <section class="">
+    <div class="flex-grow flex p-4 gap-4 justify-between items-center">
+      <div class="flex-grow flex gap-4 items-center">
+        <button
+          (click)="fetchRequest()"
+          class="rounded font-medium bg-gray-300 py-2 px-4 text-gray-600 uppercase hover:bg-gray-200"
+        >
+          {{ req.verb }}
+        </button>
+        <div class="font-mono">{{ URL }}</div>
+      </div>
+
       <button
-        (click)="fetchRequest()"
-        class="rounded font-medium bg-gray-300 py-2 px-4 text-gray-600 uppercase hover:bg-gray-200"
+        (click)="reset()"
+        class="rounded font-medium text-xs py-2 px-4 text-red-600 hover:bg-red-200"
       >
-        {{ req.verb }}
+        RESET
       </button>
-      <div class="font-mono">{{ URL }}</div>
     </div>
 
-    <button
-      (click)="reset()"
-      class="rounded font-medium text-xs py-2 px-4 text-red-600 hover:bg-red-200"
-    >
-      RESET
-    </button>
-  </div>
+    <input
+      id="queries"
+      *ngIf="req.queries"
+      [(ngModel)]="queries"
+      placeholder="key1=value&key2=value"
+      class="border-t text-sm w-full p-5 focus:outline-0"
+    />
+  </section>
 
   <textarea
     readonly
     *ngIf="response"
     [value]="response"
-    class="font-mono h-48 text-xs w-full p-4 focus:outline-0"
+    class="border-t font-mono h-48 text-xs w-full p-4 focus:outline-0"
   >
   </textarea>
 </div>

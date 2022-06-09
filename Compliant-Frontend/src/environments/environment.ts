@@ -14,12 +14,12 @@ export const environment = {
     {
       verb: 'get',
       url:  '/search',
-      query: 'query=chuck',
+      queries: 'query=search',
     },
     {
       verb: 'get',
       url: '/swapi/people',
-      query: 'pages=1',
+      queries: 'pages=1',
     },
   ],
 };

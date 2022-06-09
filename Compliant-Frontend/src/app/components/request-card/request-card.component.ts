@@ -10,23 +10,22 @@ export class RequestCardComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   URL = '';
+  queries: string | undefined = '';
   response = '';
+
   @Input() req: Req = {
     url: '',
-    query: '',
     verb: 'GET',
+    queries: '',
   };
 
   ngOnInit(): void {
     this.URL = this.req.url;
-
-    if (this.req.query) {
-      this.URL += `?${this.req.query}`;
-    }
+    this.queries = this.req.queries || '';
   }
 
   fetchRequest() {
-    const URL = environment.BASE_URL + this.URL;
+    const URL = `${environment.BASE_URL + this.URL}?${this.queries}`;
     this.http.get(URL).subscribe({
       next: (res: any) => {
         this.response = JSON.stringify(res, null, 4);
@@ -42,5 +41,5 @@ export class RequestCardComponent implements OnInit {
 interface Req {
   url: string;
   verb: string;
-  query?: string;
+  queries?: string;
 }
