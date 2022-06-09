@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  compliantapi:
+    image: ${DOCKER_REGISTRY-}compliantapi
+    build:
+      context: .
+      dockerfile: CompliantAPI/Dockerfile
