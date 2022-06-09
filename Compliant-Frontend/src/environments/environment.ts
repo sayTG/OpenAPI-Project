@@ -2,29 +2,24 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-var BASEURL = 'https://localhost:44396/';
-var titles = ['chuck/categories', 'search']
-
 export const environment = {
   production: false,
 
-  BASE_URL : BASEURL,
+  BASE_URL: 'https://localhost:44396',
   REQUESTS: [
     {
       verb: 'get',
-      title: titles[0],
-      url: BASEURL+titles[0],
+      url: '/chuck/categories',
     },
     {
       verb: 'get',
-      title: titles[1],
-      url:  BASEURL+titles[1],
-      //'https://jsonplaceholder.typicode.com/posts/1/comments',
+      url:  '/search',
+      query: 'query=chuck',
     },
     {
       verb: 'get',
-      title: '/swapi/people',
-      url: 'https://localhost:44396/chuck/categories',
+      url: '/swapi/people',
+      query: 'pages=1',
     },
   ],
 };

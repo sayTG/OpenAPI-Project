@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -8,13 +9,25 @@ import { Component, Input, OnInit } from '@angular/core';
 export class RequestCardComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
-  @Input() req = { title: '', verb: 'GET', url: '' };
+  URL = '';
   response = '';
+  @Input() req: Req = {
+    url: '',
+    query: '',
+    verb: 'GET',
+  };
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.URL = this.req.url;
+
+    if (this.req.query) {
+      this.URL += `?${this.req.query}`;
+    }
+  }
 
   fetchRequest() {
-    this.http.get(this.req.url).subscribe({
+    const URL = environment.BASE_URL + this.URL;
+    this.http.get(URL).subscribe({
       next: (res: any) => {
         this.response = JSON.stringify(res, null, 4);
       },
@@ -24,4 +37,10 @@ export class RequestCardComponent implements OnInit {
   reset() {
     this.response = '';
   }
+}
+
+interface Req {
+  url: string;
+  verb: string;
+  query?: string;
 }
