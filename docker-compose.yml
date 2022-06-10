@@ -17,5 +17,3 @@ services:
      - "7016:444"
      depends_on:
      - compliantapi
-
-    

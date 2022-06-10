@@ -7,7 +7,6 @@ import  configurl from 'src/assets/config.json';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  //base = environment.BASE_URL;
-  base = configurl.apiServer.url;
+  base = environment.BASE_URL;
   requests = environment.REQUESTS;
 }

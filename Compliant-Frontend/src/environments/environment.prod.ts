@@ -2,7 +2,7 @@ export const environment = {
   production: true,
 //Production
 
-BASE_URL: 'https://localhost:44396',
+BASE_URL: 'https://localhost:7015',
   REQUESTS: [
     {
       verb: 'get',
