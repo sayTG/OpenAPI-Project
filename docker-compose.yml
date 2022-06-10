@@ -8,3 +8,14 @@ services:
       dockerfile: CompliantAPI/Dockerfile
     ports:
     - "7015:443"
+  compliant-frontend:
+     image: ${DOCKER_REGISTRY-}compliant-frontend
+     build:
+        context: .
+        dockerfile: Compliant-Frontend/Dockerfile
+     ports:
+     - "7016:444"
+     depends_on:
+     - compliantapi
+
+    
