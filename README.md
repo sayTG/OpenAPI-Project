@@ -22,11 +22,21 @@ This project uses Angular
 Steps to run the project:
 - Open the project in visual studio code
 - Install node packages using npm install on the command line
-- Find the environmental.ts file and edit the BASE_URL to the hosted API URL
+- Find the environmental.ts file and edit the BASE_URL to the url the compliantAPI was hosted on the IIS  server
 - Run ng serve on the command line
 - Test the application
 
-#VIRTUALIZATION
+## VIRTUALIZATION
 
+### USING DOCKER FILE
+  ### COMPLIANTAPI
+  - Use docker command to run and build the API docker image in a container.
+  ### COMPLIANT-FRONTEND
+  - Find the environmental.ts file and edit the BASE_URL to the url the COMPLIANTAPI docker container port is running
+  - Use docker command to run and build the FRONTEND docker image in a container.
+  - Test the application
+
+### USING DOCKER COMPOSE
+- Open the project in Visual studio and run the compose yml file using the docker compose commands on the terminal.
 
 
