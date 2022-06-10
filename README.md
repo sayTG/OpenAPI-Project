@@ -18,7 +18,7 @@ Steps to run the project:
 - Run the project on IIS server and use swagger to query the endpoints and test.
 
 ## COMPLIANT-FRONTEND
-This project uses Angular
+This project uses AngularJS.
 Steps to run the project:
 - Open the project in visual studio code
 - Install node packages using npm install on the command line
