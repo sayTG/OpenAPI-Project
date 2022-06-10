@@ -37,7 +37,7 @@ Steps to run the project:
   - Test the application
 
 ### USING DOCKER COMPOSE
-**As at the time of writing this README I have some issues with my docker compose
+*As at the time of writing this README I have some issues with my docker compose*
 - Open the project in Visual studio and run the compose yml file using the docker compose commands on the terminal.
 
 
