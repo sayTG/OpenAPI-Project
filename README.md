@@ -30,10 +30,10 @@ Steps to run the project:
 
 ### USING DOCKER FILE
   ### COMPLIANTAPI
-  - Use docker command to run and build the API docker image in a container.
+  - Use docker command to build and run the API docker image in a container.
   ### COMPLIANT-FRONTEND
   - Find the environmental.ts file and edit the BASE_URL to the url the COMPLIANTAPI docker container port is running
-  - Use docker command to run and build the FRONTEND docker image in a container.
+  - Use docker command to build and run the FRONTEND docker image in a container.
   - Test the application
 
 ### USING DOCKER COMPOSE
