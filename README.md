@@ -21,9 +21,9 @@ Steps to run the project:
 This project uses AngularJS.
 Steps to run the project:
 - Open the project in visual studio code
-- Install node packages using npm install on the command line
+- Install node packages using "npm install" on the command line
 - Find the environmental.ts file and edit the BASE_URL to the url the compliantAPI was hosted on the IIS  server
-- Run ng serve on the command line
+- Run "ng serve" on the command line
 - Test the application
 
 ## VIRTUALIZATION
