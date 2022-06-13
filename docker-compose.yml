@@ -11,9 +11,9 @@ services:
   compliant-frontend:
      image: ${DOCKER_REGISTRY-}compliant-frontend
      build:
-        context: .
-        dockerfile: Compliant-Frontend/Dockerfile
+        context: ./Compliant-Frontend
+        dockerfile: Dockerfile
      ports:
-     - "7016:444"
+     - "7016:80"
      depends_on:
      - compliantapi
