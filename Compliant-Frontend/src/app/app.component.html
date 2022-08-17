@@ -7,12 +7,17 @@
     </h1>
 
     <section class="flex flex-col gap-8">
-      <app-request-card
+      <app-request-card (notifyParent)="getNotification($event)"
         *ngFor="let req of requests"
         [req]="req"
       ></app-request-card>
     </section>
   </div>
 
+  <app-response-modal 
+  [showModal]='show' 
+  (notifyParent)="getUpdatedModal($event)"
+  [res]="responses"
+  ></app-response-modal>
   <footer class="text-sm text-center text-gray-700">© 2022 Copyright: Compliant Application</footer>
 </main>

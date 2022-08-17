@@ -5,10 +5,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { RequestCardComponent } from './components/request-card/request-card.component';
+import { ResponseCardComponent } from './components/response-card/response-card.component';
+import { ResponseModalComponent } from './components/response-modal/response-modal.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent, RequestCardComponent],
-  imports: [BrowserModule, HttpClientModule, FormsModule],
+  declarations: [AppComponent, RequestCardComponent, ResponseCardComponent, ResponseModalComponent],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
