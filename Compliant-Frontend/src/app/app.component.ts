@@ -10,29 +10,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   base = environment.BASE_URL;
-  requests = environment.REQUESTS;
-
-  constructor(private http: HttpClient) {}
   
-  req: Req = {
-    url: '',
-    verb: 'GET',
-    queries: '',
-  };
-  responses : any;
-
-  show = false;
-
-  getNotification(evt : Req) {
-    const URL = `${environment.BASE_URL + evt.url}?${evt.queries}`;
-    this.http.get(URL).subscribe({
-      next: (res: any) => {
-        this.responses = res;
-      },
-    });
-    this.show = !this.show;
-  }
-  getUpdatedModal(evt : any) {
-    this.show = evt;
-  }
+  constructor() {}
 }

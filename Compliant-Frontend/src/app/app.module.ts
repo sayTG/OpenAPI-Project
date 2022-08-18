@@ -8,9 +8,10 @@ import { RequestCardComponent } from './components/request-card/request-card.com
 import { ResponseCardComponent } from './components/response-card/response-card.component';
 import { ResponseModalComponent } from './components/response-modal/response-modal.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ResponseHomepageComponent } from './components/response-homepage/response-homepage.component';
 
 @NgModule({
-  declarations: [AppComponent, RequestCardComponent, ResponseCardComponent, ResponseModalComponent],
+  declarations: [AppComponent, RequestCardComponent, ResponseCardComponent, ResponseModalComponent, ResponseHomepageComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

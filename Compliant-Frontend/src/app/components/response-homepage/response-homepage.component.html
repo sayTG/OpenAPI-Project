@@ -1,0 +1,6 @@
+<section class="flex flex-col gap-8">
+  <app-request-card (notifyParent)="getNotification($event)" *ngFor="let req of requests" [req]="req">
+  </app-request-card>
+</section>
+
+<app-response-modal [showModal]='show' (notifyParent)="getUpdatedModal($event)" [res]="responses"></app-response-modal>
