@@ -12,6 +12,12 @@ export class ResponseCardComponent implements OnInit {
   URL: string | null = '';
   queries: string | null = '';
   responses: any;
+  first: number = 1;
+  second: number = 10;
+  total: any;
+  page: number = 1;
+  disablePrev: boolean = false;
+  disableNext: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -25,7 +31,37 @@ export class ResponseCardComponent implements OnInit {
     this.http.get(URL).subscribe({
       next: (res: any) => {
         this.responses = res;
+        this.total = res.count;
       },
     });
+    this.disablePrev = this.first == 1 ? true : false;
+    this.disableNext = this.second >= this.total ? true : false;
+  }
+
+  fetchNext(): void {
+    this.page++;
+    const URL = `${environment.BASE_URL + this.URL}?pages=${this.page}`;
+    this.http.get(URL).subscribe({
+      next: (res: any) => {
+        this.responses = res;
+      },
+    });
+    this.first += 10;
+    this.second += 10;
+    this.disablePrev = this.first == 1 ? true : false;
+    this.disableNext = this.second >= this.total ? true : false;
+  }
+  fetchPrevious(): void {
+    this.page--;
+    const URL = `${environment.BASE_URL + this.URL}?pages=${this.page}`;
+    this.http.get(URL).subscribe({
+      next: (res: any) => {
+        this.responses = res;
+      },
+    });
+    this.first -= 10;
+    this.second -= 10;
+    this.disablePrev = this.first == 1 ? true : false;
+    this.disableNext = this.second >= this.total ? true : false;
   }
 }

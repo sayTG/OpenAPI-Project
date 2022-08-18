@@ -40,9 +40,13 @@
   </tbody>
 </table>
 <div class="flex justify-between pt-8">
-  <div>Showing 1 to 10 of 20 results</div>
+  <div>Showing {{first}} to {{second}} of {{total}} results</div>
   <div class="flex gap-4">
-    <button class="border rounded px-8 py-2 border-gray-300 text-sm bg-white">Previous</button>
-    <button class="border rounded px-8 py-2 border-gray-300 text-sm bg-white">Next</button>
+    <button class="border rounded px-8 py-2 border-gray-300 text-sm bg-white"
+      (click)="fetchPrevious()"
+      [disabled]="disablePrev">Previous</button>
+    <button class="border rounded px-8 py-2 border-gray-300 text-sm bg-white"
+    (click)="fetchNext()"
+    [disabled]="disableNext">Next</button>
   </div>
 </div>
