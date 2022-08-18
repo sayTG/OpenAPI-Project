@@ -16,8 +16,8 @@ export class ResponseCardComponent implements OnInit {
   second: number = 10;
   total: any;
   page: number = 1;
-  disablePrev: boolean = false;
-  disableNext: boolean = false;
+  disablePrev: boolean = true;
+  disableNext: boolean = true;
 
   constructor(
     private activatedRoute: ActivatedRoute,

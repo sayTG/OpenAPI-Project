@@ -6,6 +6,6 @@ namespace CompliantAPI.Abstractions.IServices
     {
         Task<ApiBaseResponse> AllJokeCategories();
         Task<ApiBaseResponse> AllStarWarsPeople(int pages);
-        Task<ApiBaseResponse> SearchChuckNorris_Swapi(string query);
+        Task<ApiBaseResponse> SearchChuckNorris_Swapi(string query, int page);
     }
 }

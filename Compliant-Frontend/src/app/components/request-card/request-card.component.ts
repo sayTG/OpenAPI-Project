@@ -35,17 +35,18 @@ export class RequestCardComponent implements OnInit {
       this.router.navigate(['/people'], {
         queryParams: { reqUrl: `${req.url}`, reqQuery: `${req.queries}` },
       });
+    } else if (req.url == '/search') {
+       const URL = `${environment.BASE_URL + this.URL}?${req.queries}`;
+       this.http.get(URL).subscribe({
+         next: (res: any) => {
+           console.log(JSON.stringify(res, null, 4));
+         },
+       });
+      this.router.navigate(['/search'], {
+        queryParams: { reqUrl: `${req.url}`, reqQuery: `${req.queries}` },
+      });
     }
-    const URL = `${environment.BASE_URL + this.URL}?${this.queries}`;
-    this.http.get(URL).subscribe({
-      next: (res: any) => {
-        console.log(JSON.stringify(res, null, 4));
-      },
-    });
-  }
 
-  reset() {
-    this.response = '';
   }
 }
 

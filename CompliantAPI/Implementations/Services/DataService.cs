@@ -17,11 +17,11 @@ namespace CompliantAPI.Implementations.Services
         }
         public async Task<ApiBaseResponse> AllJokeCategories() => await _chuckNorris.GetAllJokeCategories();
         public async Task<ApiBaseResponse> AllStarWarsPeople(int pages) => await _swapi.AllStarWarsPeople(pages == 0 ? 1 : pages);
-        public async Task<ApiBaseResponse> SearchChuckNorris_Swapi(string query)
+        public async Task<ApiBaseResponse> SearchChuckNorris_Swapi(string query, int page)
         {
             ChuckNorris_SwapDTO chuckNorris_Swap = new ChuckNorris_SwapDTO();
             ApiBaseResponse chuckResponse = await _chuckNorris.SearchChuckNorrisJokes(query);
-            ApiBaseResponse swapResponse = await _swapi.SearchStarWarsPeople(query);
+            ApiBaseResponse swapResponse = await _swapi.SearchStarWarsPeople(query, page);
 
             if (chuckResponse.Success)  chuckNorris_Swap.ChuckNorris = chuckResponse.GetResult<dynamic>();
             if (swapResponse.Success) chuckNorris_Swap.Swapi = swapResponse.GetResult<SwapiDTO>();

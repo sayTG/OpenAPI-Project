@@ -9,9 +9,10 @@ import { ResponseCardComponent } from './components/response-card/response-card.
 import { ResponseModalComponent } from './components/response-modal/response-modal.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ResponseHomepageComponent } from './components/response-homepage/response-homepage.component';
+import { SearchCardComponent } from './components/search-card/search-card.component';
 
 @NgModule({
-  declarations: [AppComponent, RequestCardComponent, ResponseCardComponent, ResponseModalComponent, ResponseHomepageComponent],
+  declarations: [AppComponent, RequestCardComponent, ResponseCardComponent, ResponseModalComponent, ResponseHomepageComponent, SearchCardComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -17,9 +17,9 @@ namespace CompliantAPI.Controllers
             _dataService = dataService;
         }
         [HttpGet]
-        public async Task<IActionResult> Search(string query)
+        public async Task<IActionResult> Search(string query, int page = 1)
         {
-            ApiBaseResponse response = await _dataService.SearchChuckNorris_Swapi(query);
+            ApiBaseResponse response = await _dataService.SearchChuckNorris_Swapi(query, page);
             if (!response.Success)
                 return ProcessError(response);
             return Ok(response.GetResult<ChuckNorris_SwapDTO>());
