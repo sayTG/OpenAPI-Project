@@ -24,7 +24,8 @@ namespace CompliantAPI.Tests.ControllersTests
         {
             // Arrange
             string query = "";
-            _dataServiceMock.Setup(d => d.SearchChuckNorris_Swapi(query)).ReturnsAsync(new ApiNoContentResponse(""));
+            int page = 1;
+            _dataServiceMock.Setup(d => d.SearchChuckNorris_Swapi(query, page)).ReturnsAsync(new ApiNoContentResponse(""));
             SearchController _controller = new(_dataServiceMock.Object);
 
             // Act
@@ -41,7 +42,8 @@ namespace CompliantAPI.Tests.ControllersTests
         {
             // Arrange
             string query = "";
-            _dataServiceMock.Setup(d => d.SearchChuckNorris_Swapi(query)).ReturnsAsync(new ApiBadRequestResponse(""));
+            int page = 1;
+            _dataServiceMock.Setup(d => d.SearchChuckNorris_Swapi(query, page)).ReturnsAsync(new ApiBadRequestResponse(""));
             SearchController _controller = new(_dataServiceMock.Object);
 
             // Act
@@ -59,7 +61,8 @@ namespace CompliantAPI.Tests.ControllersTests
             // Arrange
             string query = "";
             string value = "car";
-            _dataServiceMock.Setup(d => d.SearchChuckNorris_Swapi(query)).ReturnsAsync(new ApiOkResponse<string>(value));
+            int page = 1;
+            _dataServiceMock.Setup(d => d.SearchChuckNorris_Swapi(query, page)).ReturnsAsync(new ApiOkResponse<string>(value));
             SearchController _controller = new(_dataServiceMock.Object);
 
             // Act
@@ -74,8 +77,9 @@ namespace CompliantAPI.Tests.ControllersTests
         {
             // Arrange
             string query = "";
+            int page = 1;
             ChuckNorris_SwapDTO value = new();
-            _dataServiceMock.Setup(d => d.SearchChuckNorris_Swapi(query)).ReturnsAsync(new ApiOkResponse<ChuckNorris_SwapDTO>(value));
+            _dataServiceMock.Setup(d => d.SearchChuckNorris_Swapi(query, page)).ReturnsAsync(new ApiOkResponse<ChuckNorris_SwapDTO>(value));
             SearchController _controller = new(_dataServiceMock.Object);
 
             // Act

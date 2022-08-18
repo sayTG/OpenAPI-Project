@@ -104,6 +104,7 @@ namespace CompliantAPI.Tests.ClientsTests
         {
             // Arrange
             string query = "";
+            int page = 1;
             var mockMessageHandler = new Mock<HttpMessageHandler>();
             mockMessageHandler.Protected()
                 .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>()).ReturnsAsync
@@ -121,7 +122,7 @@ namespace CompliantAPI.Tests.ClientsTests
             Swapi swapi = new(httpClient);
 
             // Act
-            ApiBaseResponse actual = await swapi.SearchStarWarsPeople(query);
+            ApiBaseResponse actual = await swapi.SearchStarWarsPeople(query, page);
 
             // Assert
             Assert.NotNull(actual);
@@ -133,6 +134,7 @@ namespace CompliantAPI.Tests.ClientsTests
             // Arrange
             SwapiDTO swapiDTO = new SwapiDTO();
             string query = "";
+            int page = 1;
             var mockMessageHandler = new Mock<HttpMessageHandler>();
             mockMessageHandler.Protected()
                 .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>()).ReturnsAsync
@@ -150,7 +152,7 @@ namespace CompliantAPI.Tests.ClientsTests
             Swapi swapi = new(httpClient);
 
             // Act
-            ApiBaseResponse actual = await swapi.SearchStarWarsPeople(query);
+            ApiBaseResponse actual = await swapi.SearchStarWarsPeople(query, page);
 
             // Assert
             Assert.NotNull(actual);
@@ -162,6 +164,7 @@ namespace CompliantAPI.Tests.ClientsTests
             // Arrange
             string swapiDTO = "";
             string query = "";
+            int page = 1;
             var mockMessageHandler = new Mock<HttpMessageHandler>();
             mockMessageHandler.Protected()
                 .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>()).ReturnsAsync
@@ -182,7 +185,7 @@ namespace CompliantAPI.Tests.ClientsTests
             //ApiBaseResponse actual = await swapi.AllStarWarsPeople(page);
 
             // Assert
-            await Assert.ThrowsAsync<System.Text.Json.JsonException>(() => swapi.SearchStarWarsPeople(query));
+            await Assert.ThrowsAsync<System.Text.Json.JsonException>(() => swapi.SearchStarWarsPeople(query,page));
         }
         #endregion SearchStarWarsPeople
     }
