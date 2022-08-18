@@ -16,35 +16,33 @@
   </div>
 </form>
 <table class="table-auto bg-white rounded p-4 border w-full">
-    <thead>
-      <tr class="text-left border-b">
-        <th class="p-4">Song</th>
-        <th class="p-4">Artist</th>
-        <th class="p-4">Year</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="border-b hover:bg-gray-100">
-        <td class="p-4">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-        <td class="p-4">Malcolm Lockyer</td>
-        <td class="p-4">1961</td>
-      </tr>
-      <tr class="border-b hover:bg-gray-100">
-        <td class="p-4">Witchy Woman</td>
-        <td class="p-4">The Eagles</td>
-        <td class="p-4">1972</td>
-      </tr>
-      <tr class="border-b hover:bg-gray-100">
-        <td class="p-4">Shining Star</td>
-        <td class="p-4">Earth, Wind, and Fire</td>
-        <td class="p-4">1975</td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="flex justify-between pt-8">
-    <div>Showing 1 to 10 of 20 results</div>
-    <div class="flex gap-4">
-        <button class="border rounded px-8 py-2 border-gray-300 text-sm bg-white">Previous</button>
-        <button class="border rounded px-8 py-2 border-gray-300 text-sm bg-white">Next</button>
-    </div>
+  <thead>
+    <tr class="text-left border-b">
+      <th class="p-4">Name</th>
+      <th class="p-4">Height</th>
+      <th class="p-4">Mass</th>
+      <th class="p-4">Hair Color</th>
+      <th class="p-4">Eye Color</th>
+      <th class="p-4">Birth Year</th>
+      <th class="p-4">Gender</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="responses">
+    <tr class="border-b hover:bg-gray-100" *ngFor="let res of responses.results">
+      <td class="p-4">{{res.name}}</td>
+      <td class="p-4">{{res.height}}</td>
+      <td class="p-4">{{res.mass}}</td>
+      <td class="p-4">{{res.hair_Color}}</td>
+      <td class="p-4">{{res.eye_Color}}</td>
+      <td class="p-4">{{res.birth_Year}}</td>
+      <td class="p-4">{{res.gender}}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="flex justify-between pt-8">
+  <div>Showing 1 to 10 of 20 results</div>
+  <div class="flex gap-4">
+    <button class="border rounded px-8 py-2 border-gray-300 text-sm bg-white">Previous</button>
+    <button class="border rounded px-8 py-2 border-gray-300 text-sm bg-white">Next</button>
   </div>
+</div>
