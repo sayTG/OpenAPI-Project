@@ -10,7 +10,7 @@ const routes: Routes = [
           component: ResponseHomepageComponent,
         },
         {
-          path: 'response',
+          path: 'people',
           component: ResponseCardComponent,
         },
 ];

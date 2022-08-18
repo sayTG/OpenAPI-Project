@@ -32,7 +32,7 @@ export class RequestCardComponent implements OnInit {
     if (!req.queries) {
       this.notifyParent.emit(req);
     } else if (req.url == '/swapi/people') {
-      this.router.navigate(['/response'], {
+      this.router.navigate(['/people'], {
         queryParams: { reqUrl: `${req.url}`, reqQuery: `${req.queries}` },
       });
     }
