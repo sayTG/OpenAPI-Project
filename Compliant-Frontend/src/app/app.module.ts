@@ -10,9 +10,18 @@ import { ResponseModalComponent } from './components/response-modal/response-mod
 import { AppRoutingModule } from './app-routing.module';
 import { ResponseHomepageComponent } from './components/response-homepage/response-homepage.component';
 import { SearchCardComponent } from './components/search-card/search-card.component';
+import { LazyLoadDataPipe } from './lazyload.pipe';
 
 @NgModule({
-  declarations: [AppComponent, RequestCardComponent, ResponseCardComponent, ResponseModalComponent, ResponseHomepageComponent, SearchCardComponent],
+  declarations: [
+    AppComponent,
+    RequestCardComponent,
+    ResponseCardComponent,
+    ResponseModalComponent,
+    ResponseHomepageComponent,
+    SearchCardComponent,
+    LazyLoadDataPipe,
+  ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

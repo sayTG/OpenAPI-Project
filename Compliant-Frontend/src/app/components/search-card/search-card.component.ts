@@ -54,7 +54,9 @@ export class SearchCardComponent implements OnInit {
   }
   fetchNext(): void {
     this.page++;
-    const URL = `${environment.BASE_URL + this.URL}?query=${this.userInput}&page=${this.page}`;
+    const URL = `${environment.BASE_URL + this.URL}?query=${
+      this.userInput
+    }&page=${this.page}`;
     this.http.get(URL).subscribe({
       next: (res: any) => {
         this.swapi = res.swapi.results;
@@ -67,7 +69,9 @@ export class SearchCardComponent implements OnInit {
   }
   fetchPrevious(): void {
     this.page--;
-    const URL = `${environment.BASE_URL + this.URL}?query=${this.userInput}&page=${this.page}`;
+    const URL = `${environment.BASE_URL + this.URL}?query=${
+      this.userInput
+    }&page=${this.page}`;
     this.http.get(URL).subscribe({
       next: (res: any) => {
         this.swapi = res.swapi.results;

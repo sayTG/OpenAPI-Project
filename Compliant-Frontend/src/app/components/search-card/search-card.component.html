@@ -49,7 +49,7 @@
                 </tr>
               </thead>
               <tbody *ngIf="chuck">
-                <tr class="border-b hover:bg-gray-100" *ngFor="let res of chuck">
+                <tr class="border-b hover:bg-gray-100" *ngFor="let res of chuck | lazyLoadData">
                   <td class="p-4">{{res.id}}</td>
                   <td class="p-4">{{res.categories}}</td>
                   <td class="p-4">{{res.value}}</td>
